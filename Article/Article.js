@@ -99,11 +99,55 @@ const data = [
     <span class='expandButton'></span>
   </div>
 
+  */
+ function createArticle(data){
+   const article = document.createElement('div');
+   const title = document.createElement('h2');
+   const date = document.createElement('p');
+   const content2 = document.createElement('p');
+   const content3 = document.createElement('p'); 
+   const content4 = document.createElement('p');
+   const button = document.createElement('span'); 
+   
+   article.append(title, date, content2, content3, content4,button);
+   
+   article.classList.add('article');
+   date.classList.add('date');
+   button.classList.add('expandButton');
+   
+   title.textContent = data.title; 
+   date.textContent = data.date;
+   content2.textContent = data.firstParagraph;
+   content3.textContent = data.secondParagraph;
+   content4.textContent = data.thirdParagraph;
+   button.textContent = 'Click here foo'; 
+
+
+   
+  //Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+  
+  // expandButton.addEventListener.toggle('article-open');
+  button.addEventListener('click', (event) => {
+    article.classList.toggle('article-open');
+  })
+
+
+  return article;
+ }
+ const test = document.querySelector('.articles');
+ data.forEach(whatever => {
+  test.append(createArticle(whatever));
+ });
+  
+ /*
+
+  
+
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
 
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+  
 
   Step 3: return the entire component.
 
